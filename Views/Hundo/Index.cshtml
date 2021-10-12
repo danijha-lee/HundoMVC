@@ -1,0 +1,35 @@
+﻿@model HundoMVC.Models.HundoNumbers
+
+<div class="text-center">
+    <h1 class="font">Hundo. ONE HUNDRED NUMBERS</h1>
+    <hr />
+    <form  asp-controller="Hundo" asp-action="Index" method="post">
+        <div class="form-group col-6 offset-3 ">
+            <label class="font" asp-for="StartValue">Start Value</label>
+            <input type="number" asp-for="StartValue" class="form-control" placeholder="Enter Start Value" value="@Model.StartValue" />
+        </div>
+        <div class="form-group  col-6 offset-3">
+            <label class="font" asp-for="EndValue">End Value</label>
+            <input type="number" asp-for="EndValue" class="form-control" placeholder="Enter End Value" value="@Model.EndValue" />
+        </div>
+        <button type="submit" class="btn font btn-dark">Submit</button>
+    </form>
+    <hr />
+    <table class="table mt-3 table-striped table table-dark table-hover"
+    <thead>
+    <tr>
+    <th class="font" colspan="5">The Hundo Results</th>
+    </tr>
+    </thead>
+    @for (int i = 0; i < Model.Results.Count(); i += 5)
+    {
+        <tr>
+        <td class="font">@Model.Results[i]</td>
+        <td class="font">@Model.Results[i + 1]</td>
+        <td class="font">@Model.Results[i + 2]</td>
+        <td class="font">@Model.Results[i + 3]</td>
+        <td class="font">@Model.Results[i + 4]</td>
+        </tr>
+
+    }
+</div>
